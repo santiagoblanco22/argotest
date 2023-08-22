@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app3-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app-3
+  template:
+    metadata:
+      labels:
+        app: app-3
+    spec:
+      containers:
+        - name: nginx
+          image: 482407636571.dkr.ecr.us-west-1.amazonaws.com/aws-ecr-kubenginx:298bc8c
+          ports:
+            - containerPort: 80
